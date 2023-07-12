@@ -12,7 +12,7 @@ int main() {
 			showMenu_1(Contacts);
 		}
 		else if (select == '2') {
-			showMenu_2();
+			showMenu_2(Contacts);
 		}
 		else if (select == '3') {
 			showMenu_3();
