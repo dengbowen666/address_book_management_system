@@ -4,6 +4,9 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <limits>
+#include <algorithm>
+#include <iomanip>
 using namespace std;
 
 // 结构体，存各个数据
@@ -341,7 +344,7 @@ void show_function_sort()
     cout << "*******************************" << endl;
 }
 void sort_contact(vector<Contact>& contacts,bool & sign);
-void showMenu_6() {
+void showMenu_6(vector<Contact>& contacts) {
 bool sign = false;
     while (true)
     {
