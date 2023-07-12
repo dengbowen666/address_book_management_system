@@ -3,10 +3,8 @@
 int main() {
 	// 读取数据
 	vector<Contact> Contacts = readContactsFromCSV();
-	clearIstream();
 	// 启动 
 	for (;;) {
-		
 		showMenu();
 		char select;
 		cin >> select;
@@ -40,7 +38,6 @@ int main() {
 			clearIstream();
 		}
 	}
-
 
 	return 0;
 }

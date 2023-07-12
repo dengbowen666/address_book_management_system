@@ -15,7 +15,6 @@ struct Contact {
 	string birthdate;
 };
 
-
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 // ↓↓↓↓↓     基础函数     ↓↓↓↓↓
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
@@ -58,8 +57,8 @@ vector<Contact> readContactsFromCSV() {
 		file.close();
 
 		cout << "成功读取 通讯录数据" << endl;
-		//cout << "\n按任意键启动 通讯录管理系统" << endl;
-		//cin.ignore(); // 忽略用户输入的字符
+		cout << "\n按任意键启动 通讯录管理系统" << endl;
+		cin.ignore(); // 忽略用户输入的字符
 	}
 	else {
 		cout << "无法打开 通讯录数据文件" << endl;
@@ -67,8 +66,8 @@ vector<Contact> readContactsFromCSV() {
 
 		file.close();
 		cout << "已创建 通讯录数据文件" << endl;
-		//cout << "\n按任意键以启动 通讯录管理系统" << endl;
-		//cin.ignore();
+		cout << "\n按任意键以启动 通讯录管理系统" << endl;
+		cin.ignore();
 	}
 	system("cls");
 	return contacts;
@@ -96,8 +95,6 @@ void saveContactsToCSV(const vector<Contact>& contacts) {
 		std::cout << "无法打开文件" << std::endl;
 	}
 }
-// 3. 排序
-
 
 // 3. 清空
 // 3.1 清空输入流中的剩余字符（主要用于防止有人手贱，喜欢骚整，打一串字符）
@@ -108,6 +105,7 @@ void clearIstream() {
 	system("cls");
 }
 
+// 4.排序
 
 
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
@@ -199,3 +197,5 @@ void showMenu_0() {
 // 6. 立即排序
 
 // 7. 清空联系人
+
+
