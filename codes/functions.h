@@ -269,7 +269,7 @@ void search5(const vector<Contact>& contacts) {
 }
 
 
-void showMenu_2() {
+void showMenu_2(const vector<Contact>& Contacts) {
 	clearIstream();
 	for (;;) {
 		cout << "选择查找方式:" << endl << "1.按姓名查找" << endl << "2.按电话查找" << endl << "3.按标签查找" << endl << "4.按地址查找" << endl << "5.按生日查找" << endl;
