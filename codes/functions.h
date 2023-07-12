@@ -278,31 +278,31 @@ void showMenu_2(const vector<Contact>& Contacts) {
 	clearIstream();
 	for (;;) {
 		cout << "选择查找方式:" << endl << "1.按姓名查找" << endl << "2.按电话查找" << endl << "3.按标签查找" << endl << "4.按地址查找" << endl << "5.按生日查找" << endl;
-		int i;
+		char i;
 		string name0;
 		cin >> i;
 		clearIstream();
-		if (i == 1) {
+		if (i == '1') {
 			cout << "按姓名查找" << endl;
 			search1(Contacts);
 			break;
 		}
-		else if (i == 2) {
+		else if (i == '2') {
 			cout << "按电话查找" << endl;
 			search2(Contacts);
 			break;
 		}
-		else if (i == 3) {
+		else if (i == '3') {
 			cout << "按标签查找" << endl;
 			search3(Contacts);
 			break;
 		}
-		else if (i == 4) {
+		else if (i == '4') {
 			cout << "按地址查找" << endl;
 			search4(Contacts);
 			break;
 		}
-		else if (i == 5) {
+		else if (i == '5') {
 			cout << "按生日查找" << endl;
 			search5(Contacts);
 			break;
