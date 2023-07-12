@@ -99,7 +99,8 @@ void saveContactsToCSV(const vector<Contact>& contacts) {
 // 3.1 清空输入流中的剩余字符（主要用于防止有人手贱，喜欢骚整，打一串字符）
 // 3.2 清空界面
 void clearIstream() {
-	fflush(stdin);
+	// fflush(stdin);
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	system("cls");
 }
 
