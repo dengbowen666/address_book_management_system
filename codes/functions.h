@@ -477,7 +477,11 @@ void sort_contact(vector<Contact>& contacts, bool& sign)
 }
 
 void modify(vector<Contact>& a) {
-	cout << "\t\t\t用什么方式:\t\t\t\n\t\t\t1-号码\t\t\t\n\t\t\t2-姓名 " << endl;
+	cout << "***********************************************" << endl;
+	cout << "*              请选择修改方式:"<<setw(17) <<"*" << endl;
+	cout << "*               1.按电话查找"<< setw(19) << "*" << endl;
+	cout << "*               2.按姓名查找"<< setw(20)<<" * "<< endl;
+	cout << "***********************************************" << endl;
 	char m;
 	int n, j;
 	cin >> m;
@@ -527,6 +531,12 @@ void modify(vector<Contact>& a) {
 			}
 			it++;
 
+		}
+		if (it == a.end())
+		{
+			cout << "修改失败" << endl;
+			system("pause");
+			return;
 		}
 		break;
 	}
@@ -580,6 +590,12 @@ void modify(vector<Contact>& a) {
 			it2++;
 
 		}
+		if (it2 == a.end())
+		{
+			cout << "修改失败" << endl;
+			system("pause");
+			return;
+		}
 		break;
 	}
 
@@ -631,6 +647,12 @@ void dele(vector<Contact>& a) {
 
 		}
 		it++;
+	}
+	if (it == a.end())
+	{
+		cout << "删除失败" << endl;
+		system("pause");
+		return;
 	}
 	saveContactsToCSV(a);
 	system("pause");
