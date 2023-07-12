@@ -21,7 +21,7 @@ struct Contact {
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 
-// 1. 读取数据文件
+// 1.1 读取数据文件
 // 读取文件数据(若有) or 创建(若无)     在"./data.csv"
 // 返回值：所有Contact的vecter数组
 vector<Contact> readContactsFromCSV() {
@@ -73,12 +73,15 @@ vector<Contact> readContactsFromCSV() {
 	system("cls");
 	return contacts;
 }
-// 2. 保存数据文件
+// 1.2 保存数据文件
+
+// 1.3 排序
 
 
-// 3. 清空
-// 3.1 清空输入流中的剩余字符（主要用于防止有人手贱，喜欢骚整，打一串字符）
-// 3.2 清空界面
+
+// 1.3 清空
+// 1.3.1 清空输入流中的剩余字符（主要用于防止有人手贱，喜欢骚整，打一串字符）
+// 1.3.2 清空界面
 void clearIstream() {
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	// 参数1：忽略限制为最大值(即，忽略所有字符)	参数2：忽略的终止字符为'\n'
@@ -91,7 +94,7 @@ void clearIstream() {
 // ↓↓↓↓↓  界面类型的函数  ↓↓↓↓↓
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 // 
-// 1. 主菜单界面
+// 2.1 主菜单界面
 void showMenu() {
 	cout << "*******************************" << endl;
 	cout << "*****                     *****" << endl;
@@ -112,42 +115,42 @@ void showMenu() {
 	cout << "*******************************" << endl;
 }
 
-// 2. 显示联系人
+// 2.2 显示联系人
 void showMenu_1() {
 	clearIstream();
 	cout << "检测到 输入 1" << endl;
 }
-// 3. 查找联系人
+// 2.3 查找联系人
 void showMenu_2() {
 	clearIstream();
 	cout << "检测到 输入 2" << endl;
 }
-// 4. 添加联系人 
+// 2.4 添加联系人 
 void showMenu_3() {
 	clearIstream();
 	cout << "检测到 输入 3" << endl;
 }
-// 5. 删除联系人
+// 2.5 删除联系人
 void showMenu_4() {
 	clearIstream();
 	cout << "检测到 输入 4" << endl;
 }
-// 6. 修改联系人
+// 2.6 修改联系人
 void showMenu_5() {
 	clearIstream();
 	cout << "检测到 输入 5" << endl;
 }
-// 7. 立即排序		不需要界面，吧
+// 2.7 立即排序		不需要界面，吧
 void showMenu_6() {
 	clearIstream();
 	cout << "检测到 输入 6" << endl;
 }
-// 8. 清空联系人(需要确认 或者 有个密码)
+// 2.8 清空联系人(需要确认 或者 有个密码)
 void showMenu_7() {
 	clearIstream();
 	cout << "检测到 输入 7" << endl;
 }
-// 9. 退出通讯录		在main.cpp中实现
+// 2.9 退出通讯录		在main.cpp中实现
 void showMenu_0() {
 	clearIstream();
 	cout << "检测到 输入 0" << endl;
@@ -161,17 +164,18 @@ void showMenu_0() {
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 // ↓↓↓↓↓ 操作联系人的函数 ↓↓↓↓↓
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+// 操作vector
 
-// 1. 显示所有联系人
+// 3.1 显示所有联系人
 
-// 2. 查找联系人 
+// 3.2 查找联系人 
 
-// 3. 添加联系人 
+// 3.3 添加联系人 
 
-// 4. 删除联系人
+// 3.4 删除联系人
 
-// 5. 修改联系人
+// 3.5 修改联系人
 
-// 6. 立即排序
+// 3.6 立即排序
 
-// 7. 清空联系人
+// 3.7 清空联系人
