@@ -9,7 +9,7 @@ int main() {
 		char select;
 		cin >> select;
 		if (select == '1') {
-			showMenu_1();
+			showMenu_1(Contacts);
 		}
 		else if (select == '2') {
 			showMenu_2();
@@ -24,7 +24,7 @@ int main() {
 			showMenu_5();
 		}
 		else if (select == '6') {
-			showMenu_6();
+			showMenu_6(Contacts);
 		}
 		else if (select == '7') {
 			showMenu_7();
