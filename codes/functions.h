@@ -136,9 +136,9 @@ void showMenu() {
 void show_contacts(vector<Contact>& contacts);
 void sort_with_name(vector<Contact>& contacts);
 void showMenu_1(vector<Contact>& contacts) {
-    clearIstream();
-    sort_with_name(contacts);
-    show_contacts(contacts);
+	clearIstream();
+	sort_with_name(contacts);
+	show_contacts(contacts);
 }
 // 3. 查找联系人
 
@@ -155,7 +155,7 @@ void search1(const vector<Contact>& contacts) {
 			size_t found = contacts[i].name.find(name0);
 			if (found != std::string::npos) {
 				num++;
-				cout<< contacts[i].phoneNumber << ","
+				cout << contacts[i].phoneNumber << ","
 					<< contacts[i].name << ","
 					<< contacts[i].tag << ","
 					<< contacts[i].address << ","
@@ -331,33 +331,43 @@ void showMenu_5() {
 // 7. 立即排序		
 void show_function_sort()
 {
-    cout << "*******************************" << endl;
-    cout << "*****                     *****" << endl;
-    cout << "*****   请选择排序方式    *****" << endl;
-    cout << "*****                     *****" << endl;
-    cout << "*******************************" << endl;
-    cout << "*****    1、按姓名排序    *****" << endl;
-    cout << "*****    2、按生日排序    *****" << endl;
-    cout << "*****                     *****" << endl;
-    cout << "*****    3、按小标签排序  *****" << endl;
-    cout << "*****  4、按电话号码排序  *****" << endl;
-    cout << "*******************************" << endl;
-    cout << "*****    5、退出排序    *****" << endl;
-    cout << "*******************************" << endl;
+	cout << "*******************************" << endl;
+	cout << "*****                     *****" << endl;
+	cout << "*****   请选择排序方式    *****" << endl;
+	cout << "*****                     *****" << endl;
+	cout << "*******************************" << endl;
+	cout << "*****    1、按姓名排序    *****" << endl;
+	cout << "*****    2、按生日排序    *****" << endl;
+	cout << "*****                     *****" << endl;
+	cout << "*****    3、按小标签排序  *****" << endl;
+	cout << "*****  4、按电话号码排序  *****" << endl;
+	cout << "*******************************" << endl;
+	cout << "*****    5、退出排序    *****" << endl;
+	cout << "*******************************" << endl;
 }
-void sort_contact(vector<Contact>& contacts,bool & sign);
+void sort_contact(vector<Contact>& contacts, bool& sign);
 void showMenu_6(vector<Contact>& contacts) {
-bool sign = false;
-    while (true)
-    {
-        clearIstream();
-        show_function_sort();
-        sort_contact(contacts,sign);
-        if (sign) break;
-    }
+	bool sign = false;
+	while (true)
+	{
+		clearIstream();
+		show_function_sort();
+		sort_contact(contacts, sign);
+		if (sign) break;
+	}
 }
 // 8. 清空联系人(需要确认 或者 有个密码)
-void showMenu_7() {
+void showMenu_7(vector<Contact>& contacts) {
+	ofstream file("data.csv");
+	if (!file.is_open())
+	{
+		cout << "文件不存在" << endl;
+		return;
+	}
+	contacts.clear();
+	file.open("data.csv", ios::out);
+	cout << "清空成功" << endl;
+	system("pause");
 	clearIstream();
 	cout << "检测到 输入 7" << endl;
 }
@@ -365,9 +375,9 @@ void showMenu_7() {
 void showMenu_0(vector<Contact>& contacts) {
 	clearIstream();
 	cout << "欢迎下次使用" << endl;
-        sort_with_name(contacts);
+	sort_with_name(contacts);
 	system("pause");
-//	return;
+	//return;
 }
 
 
@@ -379,14 +389,14 @@ void showMenu_0(vector<Contact>& contacts) {
 // 1. 显示所有联系人
 void show_contacts(vector<Contact>& contacts)
 {
-    cout << "------------------------------------------------------------------------" << endl;
-    cout << "|    电话    |    姓名    |    标签    |        地址        |    生日    |" << endl;
-    cout << "------------------------------------------------------------------------" << endl;
-    for (auto & contact : contacts)
-    {
-        cout << setw(12) << contact.phoneNumber << setw(12) << contact.name << setw(12) << contact.tag << setw(20) << contact.address<< setw(16) << contact.birthdate << endl;
-    }
-    system("pause");
+	cout << "------------------------------------------------------------------------" << endl;
+	cout << "|    电话    |    姓名    |    标签    |        地址        |    生日    |" << endl;
+	cout << "------------------------------------------------------------------------" << endl;
+	for (auto& contact : contacts)
+	{
+		cout << setw(12) << contact.phoneNumber << setw(12) << contact.name << setw(12) << contact.tag << setw(20) << contact.address << setw(16) << contact.birthdate << endl;
+	}
+	system("pause");
 }
 // 2. 查找联系人 
 
@@ -397,74 +407,233 @@ void show_contacts(vector<Contact>& contacts)
 // 5. 修改联系人
 
 // 6. 立即排序
-bool cmp1(Contact& a,Contact& b)
+bool cmp1(Contact& a, Contact& b)
 {
-    return a.name < b.name;
+	return a.name < b.name;
 }
 
 void sort_with_name(vector<Contact>& contacts)
 {
-    sort(contacts.begin(),contacts.end(),cmp1);
+	sort(contacts.begin(), contacts.end(), cmp1);
 }
 
-bool cmp2(Contact& a,Contact& b)
+bool cmp2(Contact& a, Contact& b)
 {
-    return a.birthdate < b.birthdate;
+	return a.birthdate < b.birthdate;
 }
 
 void sort_with_birthday(vector<Contact>& contacts)
 {
-    sort(contacts.begin(),contacts.end(),cmp2);
+	sort(contacts.begin(), contacts.end(), cmp2);
 }
 
-bool cmp3(Contact& a,Contact& b)
+bool cmp3(Contact& a, Contact& b)
 {
-    return a.tag < b.tag;
+	return a.tag < b.tag;
 }
 
 void sort_with_tag(vector<Contact>& contacts)
 {
-    sort(contacts.begin(),contacts.end(),cmp3);
+	sort(contacts.begin(), contacts.end(), cmp3);
 }
 
-bool cmp4(Contact& a,Contact& b)
+bool cmp4(Contact& a, Contact& b)
 {
-    return a.phoneNumber < b.phoneNumber;
+	return a.phoneNumber < b.phoneNumber;
 }
 
 void sort_with_phone_number(vector<Contact>& contacts)
 {
-    sort(contacts.begin(),contacts.end(),cmp4);
+	sort(contacts.begin(), contacts.end(), cmp4);
 }
 
-void sort_contact(vector<Contact>& contacts,bool & sign)
+void sort_contact(vector<Contact>& contacts, bool& sign)
 {
-    char select;
-    cin >> select;
-    system("cls");
-    switch (select)
-    {
-        case '1':
-            sort_with_name(contacts);
-            break;
-        case '2':
-            sort_with_birthday(contacts);
-            saveContactsToCSV(contacts);
-            break;
-        case '3':
-            sort_with_tag(contacts);
-            break;
-        case '4':
-            sort_with_phone_number(contacts);
-            break;
-        case '5':
-            sign = true;
-            return;
-        default:
-            break;
-    }
-    show_contacts(contacts);
+	char select;
+	cin >> select;
+	system("cls");
+	switch (select)
+	{
+	case '1':
+		sort_with_name(contacts);
+		break;
+	case '2':
+		sort_with_birthday(contacts);
+		saveContactsToCSV(contacts);
+		break;
+	case '3':
+		sort_with_tag(contacts);
+		break;
+	case '4':
+		sort_with_phone_number(contacts);
+		break;
+	case '5':
+		sign = true;
+		return;
+	default:
+		break;
+	}
+	show_contacts(contacts);
 }
-// 7. 清空联系人
 
+void modify(vector<Contact>& a) {
+	cout << "\t\t\t用什么方式:\t\t\t\n\t\t\t1-号码\t\t\t\n\t\t\t2-姓名 " << endl;
+	char m;
+	int n, j;
+	cin >> m;
+	switch (m) {
+	case '1': {
+		cout << "请输入号码：" << endl;
+		string number;
+		cin >> number;
+		auto it = a.begin();
+		while (it != a.end()) {
+			if (number == it->phoneNumber) {
+				cout << "请确定你要修改的内容：\n1-name\n2-address\n3-phoneNumber\n4-tag\n5-birthdate " << endl;
+
+				cin >> n;
+				switch (n) {
+				case 1: {
+					cout << "请输入你要修改的内容：" << endl;
+					cin >> it->name;
+					break;
+				}
+				case 2: {
+					cout << "请输入你要修改的内容：" << endl;
+					cin >> it->address;
+					break;
+				}
+				case 3: {
+					cout << "请输入你要修改的内容：" << endl;
+					cin >> it->phoneNumber;
+					break;
+				}
+				case 4: {
+					cout << "请输入你要修改的内容：" << endl;
+					cin >> it->tag;
+					break;
+				}
+				case 5: {
+					cout << "请输入你要修改的内容：" << endl;
+
+					cin >> it->birthdate;
+					break;
+				}
+
+				}
+
+
+
+			}
+			it++;
+
+		}
+		break;
+	}
+	case '2':
+
+	{
+		cout << "请输入姓名：" << endl;
+
+		string na;
+		cin >> na;
+
+		auto it2 = a.begin();
+		while (it2 != a.end()) {
+			if (na == it2->name) {
+				cout << "请确定你要修改的内容：1-name\n2-address\n3-phoneNumber\n4-tag\n5-birthdate " << endl;
+
+				cin >> j;
+				switch (j) {
+				case 1: {
+					cout << "请输入你要修改的内容：" << endl;
+					cin >> it2->name;
+					break;
+				}
+				case 2: {
+					cout << "请输入你要修改的内容：" << endl;
+					cin >> it2->address;
+					break;
+				}
+				case 3: {
+					cout << "请输入你要修改的内容：" << endl;
+					cin >> it2->phoneNumber;
+					break;
+				}
+				case 4: {
+					cout << "请输入你要修改的内容：" << endl;
+					cin >> it2->tag;
+					break;
+				}
+				case 5: {
+					cout << "请输入你要修改的内容：" << endl;
+
+					cin >> it2->birthdate;
+					break;
+				}
+
+				}
+
+
+
+			}
+			it2++;
+
+		}
+		break;
+	}
+
+
+	}
+
+
+	cout << "修改成功" << endl;
+	saveContactsToCSV(a);
+	system("pause");
+	system("cls");
+}
+
+void add(vector<Contact>& a) {
+	Contact person;
+	cout << "请输入姓名： " << endl;
+	cin >> person.name;
+	cout << "请输入地址：" << endl;
+	cin >> person.address;
+	cout << "请输入号码： " << endl;
+	cin >> person.phoneNumber;
+	cout << "请输入标签： " << endl;
+	cin >> person.tag;
+	cout << "请输入生日：" << endl;
+	cin >> person.birthdate;
+	a.push_back(person);
+	saveContactsToCSV(a);
+	cout << "添加成功" << endl;
+	system("pause");
+	system("cls");
+
+
+
+
+
+
+}
+
+void dele(vector<Contact>& a) {
+	cout << "请输入你要删除的联系人电话： " << endl;
+	string number;
+	cin >> number;
+	auto it = a.begin();
+	while (it != a.end()) {
+		if (number == it->phoneNumber) {
+			a.erase(it);
+			cout << "删除成功" << endl;
+			break;
+
+		}
+		it++;
+	}
+	saveContactsToCSV(a);
+	system("pause");
+	system("cls");
+}
 
