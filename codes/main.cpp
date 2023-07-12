@@ -1,9 +1,9 @@
 #include "functions.h"
 
 int main() {
-	// ¶ÁÈ¡Êı¾İ
+	// è¯»å–æ•°æ®
 	vector<Contact> Contacts = readContactsFromCSV();
-	// Æô¶¯ 
+	// å¯åŠ¨ 
 	for (;;) {
 		showMenu();
 		char select;
@@ -34,8 +34,7 @@ int main() {
 		}
 		else {
 			clearIstream();
-			cout << "¼ì²âµ½·Ç·¨²Ù×÷·û\nÇë°´ÈÎÒâ½¨¼ÌĞø..." << endl;
-			clearIstream();
+			cout << "æ£€æµ‹åˆ°éæ³•æ“ä½œç¬¦" << endl;
 		}
 	}
 
