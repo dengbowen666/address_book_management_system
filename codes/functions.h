@@ -134,9 +134,11 @@ void showMenu() {
 
 // 2. 显示联系人
 void show_contacts(vector<Contact>& contacts);
+void sort_with_name(vector<Contact>& contacts);
 void showMenu_1(vector<Contact>& contacts) {
-	clearIstream();
-    	show_contacts(contacts);
+    clearIstream();
+    sort_with_name(contacts);
+    show_contacts(contacts);
 }
 // 3. 查找联系人
 
@@ -360,12 +362,12 @@ void showMenu_7() {
 	cout << "检测到 输入 7" << endl;
 }
 // 9. 退出通讯录		在main.cpp中实现
-void showMenu_0() {
+void showMenu_0(vector<Contact>& contacts) {
 	clearIstream();
-	cout << "检测到 输入 0" << endl;
 	cout << "欢迎下次使用" << endl;
+        sort_with_name(contacts);
 	system("pause");
-	return;
+//	return;
 }
 
 
