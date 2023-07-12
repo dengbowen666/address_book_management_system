@@ -30,7 +30,7 @@ int main() {
 			showMenu_7();
 		}
 		else if (select == '0') {
-			showMenu_0();
+			showMenu_0(contacts);
 		}
 		else {
 			clearIstream();
