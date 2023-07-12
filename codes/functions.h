@@ -136,9 +136,177 @@ void showMenu_1() {
 	cout << "检测到 输入 1" << endl;
 }
 // 3. 查找联系人
+
+void search1(const vector<Contact>& contacts) {
+	cout << "请输入姓名：";
+	string name0;
+	int num = 0;
+	cin >> name0;
+	for (int i = 0; i < contacts.size(); i++)
+	{
+		int len1 = sizeof(name0);
+		int len2 = sizeof(contacts[i].name);
+		if (len1 <= len2) {
+			size_t found = contacts[i].name.find(name0);
+			if (found != std::string::npos) {
+				num++;
+				cout<< contacts[i].phoneNumber << ","
+					<< contacts[i].name << ","
+					<< contacts[i].tag << ","
+					<< contacts[i].address << ","
+					<< contacts[i].birthdate << "\n";
+			}
+		}
+	}
+	if (num == 0) {
+		cout << "无结果！" << endl;
+	}
+	system("pause");
+}
+void search2(const vector<Contact>& contacts) {
+	cout << "请输入电话：";
+	string phoneNumber0;
+	int num = 0;
+	cin >> phoneNumber0;
+	for (int i = 0; i < contacts.size(); i++)
+	{
+		int len1 = sizeof(phoneNumber0);
+		int len2 = sizeof(contacts[i].phoneNumber);
+		if (len1 <= len2) {
+			size_t found = contacts[i].phoneNumber.find(phoneNumber0);
+			if (found != std::string::npos) {
+				num++;
+				cout << contacts[i].phoneNumber << ","
+					<< contacts[i].name << ","
+					<< contacts[i].tag << ","
+					<< contacts[i].address << ","
+					<< contacts[i].birthdate << "\n";
+			}
+		}
+	}
+	if (num == 0) {
+		cout << "无结果！" << endl;
+	}
+	system("pause");
+}
+void search3(const vector<Contact>& contacts) {
+	cout << "请输入标签：";
+	string tag0;
+	int num = 0;
+	cin >> tag0;
+	for (int i = 0; i < contacts.size(); i++)
+	{
+		int len1 = sizeof(tag0);
+		int len2 = sizeof(contacts[i].tag);
+		if (len1 <= len2) {
+			size_t found = contacts[i].tag.find(tag0);
+			if (found != std::string::npos) {
+				num++;
+				cout << contacts[i].phoneNumber << ","
+					<< contacts[i].name << ","
+					<< contacts[i].tag << ","
+					<< contacts[i].address << ","
+					<< contacts[i].birthdate << "\n";
+			}
+		}
+	}
+	if (num == 0) {
+		cout << "无结果！" << endl;
+	}
+	system("pause");
+}
+void search4(const vector<Contact>& contacts) {
+	cout << "请输入地址：";
+	string address0;
+	int num = 0;
+	cin >> address0;
+	for (int i = 0; i < contacts.size(); i++)
+	{
+		int len1 = sizeof(address0);
+		int len2 = sizeof(contacts[i].address);
+		if (len1 <= len2) {
+			size_t found = contacts[i].address.find(address0);
+			if (found != std::string::npos) {
+				num++;
+				cout << contacts[i].phoneNumber << ","
+					<< contacts[i].name << ","
+					<< contacts[i].tag << ","
+					<< contacts[i].address << ","
+					<< contacts[i].birthdate << "\n";
+			}
+		}
+	}
+	if (num == 0) {
+		cout << "无结果！" << endl;
+	}
+	system("pause");
+}
+void search5(const vector<Contact>& contacts) {
+	cout << "请输入生日：";
+	string birthdate0;
+	int num = 0;
+	cin >> birthdate0;
+	for (int i = 0; i < contacts.size(); i++)
+	{
+		int len1 = sizeof(birthdate0);
+		int len2 = sizeof(contacts[i].birthdate);
+		if (len1 <= len2) {
+			size_t found = contacts[i].birthdate.find(birthdate0);
+			if (found != std::string::npos) {
+				num++;
+				cout << contacts[i].phoneNumber << ","
+					<< contacts[i].name << ","
+					<< contacts[i].tag << ","
+					<< contacts[i].address << ","
+					<< contacts[i].birthdate << "\n";
+			}
+		}
+	}
+	if (num == 0) {
+		cout << "无结果！" << endl;
+	}
+	system("pause");
+}
+
+
 void showMenu_2() {
 	clearIstream();
-	cout << "检测到 输入 2" << endl;
+	for (;;) {
+		cout << "选择查找方式:" << endl << "1.按姓名查找" << endl << "2.按电话查找" << endl << "3.按标签查找" << endl << "4.按地址查找" << endl << "5.按生日查找" << endl;
+		int i;
+		string name0;
+		cin >> i;
+		clearIstream();
+		if (i == 1) {
+			cout << "按姓名查找" << endl;
+			search1(Contacts);
+			break;
+		}
+		else if (i == 2) {
+			cout << "按电话查找" << endl;
+			search2(Contacts);
+			break;
+		}
+		else if (i == 3) {
+			cout << "按标签查找" << endl;
+			search3(Contacts);
+			break;
+		}
+		else if (i == 4) {
+			cout << "按地址查找" << endl;
+			search4(Contacts);
+			break;
+		}
+		else if (i == 5) {
+			cout << "按生日查找" << endl;
+			search5(Contacts);
+			break;
+		}
+		else {
+			cout << "非法字符，请重新输入！" << endl;
+			break;
+		}
+	}
 }
 // 4. 添加联系人 
 void showMenu_3() {
