@@ -714,7 +714,7 @@ void modify(vector<Contact>& a) {
 		auto it2 = a.begin();
 		while (it2 != a.end()) {
 			if (na == it2->name) {
-				cout << "请确定你要修改的内容：1-name\n2-address\n3-phoneNumber\n4-tag\n5-birthdate " << endl;
+				cout << "请确定你要修改的内容：\n1-name\n2-address\n3-phoneNumber\n4-tag\n5-birthdate " << endl;
 
 				cin >> j;
 				switch (j) {
