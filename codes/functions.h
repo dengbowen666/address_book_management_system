@@ -320,9 +320,13 @@ void showMenu_2(const vector<Contact>& Contacts) {
 			search5(Contacts);
 			break;
 		}
+		else if (i == '6') {
+			cout << "即将返回上一级" << endl;
+			break;
+		}
 		else {
 			cout << "非法字符，请重新输入！" << endl;
-			break;
+			system("pause");
 		}
 	}
 }
