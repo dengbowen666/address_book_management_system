@@ -64,8 +64,10 @@ vector<Contact> readContactsFromCSV() {
 	else {
 		cout << "无法打开 通讯录数据文件" << endl;
 		ofstream file("data.csv");
+		string str = "Phone Number,Name,Tag,Address,Birthdate\n12345678901,Alice,Friend,123 Main St,2003-01-01";
+		file << str << endl;
 		file.close();
-		cout << "已创建 通讯录数据文件" << endl;
+		cout << "已创建 通讯录数据文件\n已添加默认数据" << endl;
 	}
 	cout << "\n准备启动 通讯录管理系统" << endl;
 	return contacts;
