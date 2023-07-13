@@ -155,11 +155,14 @@ void showMenu_1(vector<Contact>& contacts) {
 }
 // 3. 查找联系人
 
+
 void search1(const vector<Contact>& contacts) {
-	cout << "请输入姓名：";
 	string name0;
 	int num = 0;
+	//clearIstream();
+	cout << "请输入姓名：";
 	cin >> name0;
+	vector<Contact>con;
 	for (int i = 0; i < contacts.size(); i++)
 	{
 		int len1 = sizeof(name0);
@@ -168,24 +171,56 @@ void search1(const vector<Contact>& contacts) {
 			size_t found = contacts[i].name.find(name0);
 			if (found != std::string::npos) {
 				num++;
-				cout << contacts[i].phoneNumber << ","
-					<< contacts[i].name << ","
-					<< contacts[i].tag << ","
-					<< contacts[i].address << ","
-					<< contacts[i].birthdate << "\n";
+				cout << "phoneNumber:" << contacts[i].phoneNumber << ","
+					<< " name:" << contacts[i].name << ","
+					<< " tag:" << contacts[i].tag << ","
+					<< " address:" << contacts[i].address << ","
+					<< " birthdate:" << contacts[i].birthdate << "\n";
+				con.push_back(contacts[i]);
 			}
 		}
 	}
 	if (num == 0) {
-		cout << "无结果！" << endl;
+		cout << "无结果！" << endl << "1:回到主界面" << endl << "其他:回到上一步" << endl;
+		int truth;
+		cin >> truth;
+		if (truth != 1) {
+			con = contacts;
+			cout << "已回到上一步" << endl;
+			search1(con);
+		}	
 	}
-	system("pause");
+	else {
+l1:		cout << "1、继续" << endl << "2、返回主界面" << endl;
+		int m;
+		cin >> m;
+		for (;;) {
+			if (m == 1) {
+				search1(con);
+			}
+			else if (m == 2) {
+				//system("pause");
+				break;
+			}
+			else {
+				cout << "非法字符,请重输" << endl;
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				system("pause");
+				system("cls");
+				goto l1;
+			}
+			break;
+		}
+	}
+
 }
+	
 void search2(const vector<Contact>& contacts) {
 	cout << "请输入电话：";
 	string phoneNumber0;
 	int num = 0;
 	cin >> phoneNumber0;
+	vector<Contact>con;
 	for (int i = 0; i < contacts.size(); i++)
 	{
 		int len1 = sizeof(phoneNumber0);
@@ -194,24 +229,53 @@ void search2(const vector<Contact>& contacts) {
 			size_t found = contacts[i].phoneNumber.find(phoneNumber0);
 			if (found != std::string::npos) {
 				num++;
-				cout << contacts[i].phoneNumber << ","
-					<< contacts[i].name << ","
-					<< contacts[i].tag << ","
-					<< contacts[i].address << ","
-					<< contacts[i].birthdate << "\n";
+				cout << "phoneNumber:" << contacts[i].phoneNumber << ","
+					<< " name:" << contacts[i].name << ","
+					<< " tag:" << contacts[i].tag << ","
+					<< " address:" << contacts[i].address << ","
+					<< " birthdate:" << contacts[i].birthdate << "\n";
+				con.push_back(contacts[i]);
 			}
 		}
 	}
 	if (num == 0) {
-		cout << "无结果！" << endl;
+		cout << "无结果！" << endl << "1:回到主界面" << endl << "其他:回到上一步" << endl;
+		int truth;
+		cin >> truth;
+
+		if (truth != 1) {
+			con = contacts;
+			cout << "已回到上一步" << endl;
+			search2(con);
+		}
 	}
-	system("pause");
+	else {
+l2:		cout << "1、继续" << endl << "2、返回主界面" << endl;
+		int m;
+		cin >> m;
+		for (;;) {
+			if (m == 1) {
+				search2(con);
+			}
+			else if (m == 2) {
+				//system("pause");
+				break;
+			}
+			else {
+				cout << "非法字符,请重输" << endl;
+				system("pause");
+				goto l2;
+			}
+			break;
+		}
+	}
 }
 void search3(const vector<Contact>& contacts) {
 	cout << "请输入标签：";
 	string tag0;
 	int num = 0;
 	cin >> tag0;
+	vector<Contact>con;
 	for (int i = 0; i < contacts.size(); i++)
 	{
 		int len1 = sizeof(tag0);
@@ -220,24 +284,52 @@ void search3(const vector<Contact>& contacts) {
 			size_t found = contacts[i].tag.find(tag0);
 			if (found != std::string::npos) {
 				num++;
-				cout << contacts[i].phoneNumber << ","
-					<< contacts[i].name << ","
-					<< contacts[i].tag << ","
-					<< contacts[i].address << ","
-					<< contacts[i].birthdate << "\n";
+				cout << "phoneNumber:" << contacts[i].phoneNumber << ","
+					<< " name:" << contacts[i].name << ","
+					<< " tag:" << contacts[i].tag << ","
+					<< " address:" << contacts[i].address << ","
+					<< " birthdate:" << contacts[i].birthdate << "\n";
+				con.push_back(contacts[i]);
 			}
 		}
 	}
 	if (num == 0) {
-		cout << "无结果！" << endl;
+		cout << "无结果！" << endl << "1:回到主界面" << endl << "其他:回到上一步" << endl;
+		int truth;
+		cin >> truth;
+
+		if (truth != 1) {
+			con = contacts;
+			cout << "已回到上一步" << endl;
+			search3(con);
+		}
 	}
-	system("pause");
+	else {
+	l3:		cout << "1、继续" << endl << "2、返回主界面" << endl;
+		int m;
+		cin >> m;
+		for (;;) {
+			if (m == 1) {
+				search3(con);
+			}
+			else if (m == 2) {
+				break;
+			}
+			else {
+				cout << "非法字符,请重输" << endl;
+				system("pause");
+				goto l3;
+			}
+			break;
+		}
+	}
 }
 void search4(const vector<Contact>& contacts) {
 	cout << "请输入地址：";
 	string address0;
 	int num = 0;
 	cin >> address0;
+	vector<Contact>con;
 	for (int i = 0; i < contacts.size(); i++)
 	{
 		int len1 = sizeof(address0);
@@ -246,24 +338,52 @@ void search4(const vector<Contact>& contacts) {
 			size_t found = contacts[i].address.find(address0);
 			if (found != std::string::npos) {
 				num++;
-				cout << contacts[i].phoneNumber << ","
-					<< contacts[i].name << ","
-					<< contacts[i].tag << ","
-					<< contacts[i].address << ","
-					<< contacts[i].birthdate << "\n";
+				cout << "phoneNumber:" << contacts[i].phoneNumber << ","
+					<< " name:" << contacts[i].name << ","
+					<< " tag:" << contacts[i].tag << ","
+					<< " address:" << contacts[i].address << ","
+					<< " birthdate:" << contacts[i].birthdate << "\n";
+				con.push_back(contacts[i]);
 			}
 		}
 	}
 	if (num == 0) {
-		cout << "无结果！" << endl;
+		cout << "无结果！" << endl << "1:回到主界面" << endl << "其他:回到上一步" << endl;
+		int truth;
+		cin >> truth;
+
+		if (truth != 1) {
+			con = contacts;
+			cout << "已回到上一步" << endl;
+			search4(con);
+		}
 	}
-	system("pause");
+	else {
+	l4:		cout << "1、继续" << endl << "2、返回主界面" << endl;
+		int m;
+		cin >> m;
+		for (;;) {
+			if (m == 1) {
+				search4(con);
+			}
+			else if (m == 2) {
+				break;
+			}
+			else {
+				cout << "非法字符,请重输" << endl;
+				system("pause");
+				goto l4;
+			}
+			break;
+		}
+	}
 }
 void search5(const vector<Contact>& contacts) {
 	cout << "请输入生日：";
 	string birthdate0;
 	int num = 0;
 	cin >> birthdate0;
+	vector<Contact>con;
 	for (int i = 0; i < contacts.size(); i++)
 	{
 		int len1 = sizeof(birthdate0);
@@ -272,18 +392,45 @@ void search5(const vector<Contact>& contacts) {
 			size_t found = contacts[i].birthdate.find(birthdate0);
 			if (found != std::string::npos) {
 				num++;
-				cout << contacts[i].phoneNumber << ","
-					<< contacts[i].name << ","
-					<< contacts[i].tag << ","
-					<< contacts[i].address << ","
-					<< contacts[i].birthdate << "\n";
+				cout << "phoneNumber:" << contacts[i].phoneNumber << ","
+					<< " name:" << contacts[i].name << ","
+					<< " tag:" << contacts[i].tag << ","
+					<< " address:" << contacts[i].address << ","
+					<< " birthdate:" << contacts[i].birthdate << "\n";
+				con.push_back(contacts[i]);
 			}
 		}
 	}
 	if (num == 0) {
-		cout << "无结果！" << endl;
+		cout << "无结果！" << endl << "1:回到主界面" << endl << "其他:回到上一步" << endl;
+		int truth;
+		cin >> truth;
+
+		if (truth != 1) {
+			con = contacts;
+			cout << "已回到上一步" << endl;
+			search5(con);
+		}
 	}
-	system("pause");
+	else {
+	l5:		cout << "1、继续" << endl << "2、返回主界面" << endl;
+		int m;
+		cin >> m;
+		for (;;) {
+			if (m == 1) {
+				search5(con);
+			}
+			else if (m == 2) {
+				break;
+			}
+			else {
+				cout << "非法字符,请重输" << endl;
+				system("pause");
+				goto l5;
+			}
+			break;
+		}
+	}
 }
 
 
