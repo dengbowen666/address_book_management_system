@@ -182,23 +182,23 @@ void search1(const vector<Contact>& contacts) {
 	}
 	if (num == 0) {
 		cout << "无结果！" << endl << "1:回到主界面" << endl << "其他:回到上一步" << endl;
-		int truth;
+		char truth;
 		cin >> truth;
-		if (truth != 1) {
+		if (truth != '1') {
 			con = contacts;
 			cout << "已回到上一步" << endl;
 			search1(con);
-		}	
+		}
 	}
 	else {
-l1:		cout << "1、继续" << endl << "2、返回主界面" << endl;
-		int m;
+	l1:		cout << "1、继续" << endl << "2、返回主界面" << endl;
+		char m;
 		cin >> m;
 		for (;;) {
-			if (m == 1) {
+			if (m == '1') {
 				search1(con);
 			}
-			else if (m == 2) {
+			else if (m == '2') {
 				//system("pause");
 				break;
 			}
@@ -214,7 +214,7 @@ l1:		cout << "1、继续" << endl << "2、返回主界面" << endl;
 	}
 
 }
-	
+
 void search2(const vector<Contact>& contacts) {
 	cout << "请输入电话：";
 	string phoneNumber0;
@@ -240,7 +240,7 @@ void search2(const vector<Contact>& contacts) {
 	}
 	if (num == 0) {
 		cout << "无结果！" << endl << "1:回到主界面" << endl << "其他:回到上一步" << endl;
-		int truth;
+		char truth;
 		cin >> truth;
 
 		if (truth != 1) {
@@ -250,8 +250,8 @@ void search2(const vector<Contact>& contacts) {
 		}
 	}
 	else {
-l2:		cout << "1、继续" << endl << "2、返回主界面" << endl;
-		int m;
+	l2:		cout << "1、继续" << endl << "2、返回主界面" << endl;
+		char m;
 		cin >> m;
 		for (;;) {
 			if (m == 1) {
@@ -295,7 +295,7 @@ void search3(const vector<Contact>& contacts) {
 	}
 	if (num == 0) {
 		cout << "无结果！" << endl << "1:回到主界面" << endl << "其他:回到上一步" << endl;
-		int truth;
+		char truth;
 		cin >> truth;
 
 		if (truth != 1) {
@@ -306,7 +306,7 @@ void search3(const vector<Contact>& contacts) {
 	}
 	else {
 	l3:		cout << "1、继续" << endl << "2、返回主界面" << endl;
-		int m;
+		char m;
 		cin >> m;
 		for (;;) {
 			if (m == 1) {
@@ -349,7 +349,7 @@ void search4(const vector<Contact>& contacts) {
 	}
 	if (num == 0) {
 		cout << "无结果！" << endl << "1:回到主界面" << endl << "其他:回到上一步" << endl;
-		int truth;
+		char truth;
 		cin >> truth;
 
 		if (truth != 1) {
@@ -360,7 +360,7 @@ void search4(const vector<Contact>& contacts) {
 	}
 	else {
 	l4:		cout << "1、继续" << endl << "2、返回主界面" << endl;
-		int m;
+		char m;
 		cin >> m;
 		for (;;) {
 			if (m == 1) {
@@ -403,7 +403,7 @@ void search5(const vector<Contact>& contacts) {
 	}
 	if (num == 0) {
 		cout << "无结果！" << endl << "1:回到主界面" << endl << "其他:回到上一步" << endl;
-		int truth;
+		char truth;
 		cin >> truth;
 
 		if (truth != 1) {
@@ -414,7 +414,7 @@ void search5(const vector<Contact>& contacts) {
 	}
 	else {
 	l5:		cout << "1、继续" << endl << "2、返回主界面" << endl;
-		int m;
+		char m;
 		cin >> m;
 		for (;;) {
 			if (m == 1) {
@@ -560,7 +560,6 @@ void show_contacts(vector<Contact>& contacts)
 	{
 		cout << setw(12) << contact.phoneNumber << setw(12) << contact.name << setw(12) << contact.tag << setw(20) << contact.address << setw(16) << contact.birthdate << endl;
 	}
-	system("pause");
 }
 // 2. 查找联系人 
 
@@ -642,9 +641,9 @@ void sort_contact(vector<Contact>& contacts, bool& sign)
 
 void modify(vector<Contact>& a) {
 	cout << "***********************************************" << endl;
-	cout << "*              请选择修改方式:"<<setw(17) <<"*" << endl;
-	cout << "*               1.按电话查找"<< setw(19) << "*" << endl;
-	cout << "*               2.按姓名查找"<< setw(20)<<" * "<< endl;
+	cout << "*              请选择修改方式:" << setw(17) << "*" << endl;
+	cout << "*               1.按电话查找" << setw(19) << "*" << endl;
+	cout << "*               2.按姓名查找" << setw(20) << " * " << endl;
 	cout << "***********************************************" << endl;
 	char m;
 	int n, j;
@@ -822,4 +821,3 @@ void dele(vector<Contact>& a) {
 	system("pause");
 	system("cls");
 }
-
