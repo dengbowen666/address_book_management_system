@@ -62,12 +62,22 @@ vector<Contact> readContactsFromCSV() {
 		cout << "成功读取 通讯录数据" << endl;
 	}
 	else {
-		cout << "无法打开 通讯录数据文件" << endl;
+		// 创建基础文件与默认数据
 		ofstream file("data.csv");
-		string str = "Phone Number,Name,Tag,Address,Birthdate\n12345678901,Alice,Friend,123 Main St,2003-01-01";
-		file << str << endl;
+		string str1 = "Phone Number,Name,Tag,Address,Birthdate";
+		string str2 = "12345678901,Alice,Friend,123 Main St,2003-01-01";
+		file << str1 << endl << str2 << endl;
 		file.close();
-		cout << "已创建 通讯录数据文件\n已添加默认数据" << endl;
+
+		Contact contact;
+		contact.phoneNumber = "12345678901";
+		contact.name = "Alice";
+		contact.tag = "Friend";
+		contact.address = "123 Main St";
+		contact.birthdate = "2003-01-01";
+		contacts.push_back(contact);
+
+		cout << "已创建 通讯录数据文件并添加默认数据" << endl;
 	}
 	cout << "\n准备启动 通讯录管理系统" << endl;
 	return contacts;
