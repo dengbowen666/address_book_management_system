@@ -801,10 +801,6 @@ void modify(vector<Contact>& a) {
             }
             else if (count == 1) {
                 index = a2[0];
-                //                    cout << "修改成功！" << endl;
-                //                    saveContactsToCSV(a);
-                //                    system("pause");
-                //                    return;
             }
             else {
                 for (int& it2 : a2) {
@@ -821,10 +817,6 @@ void modify(vector<Contact>& a) {
                             index = it2;
                             sign = false;
                             break;
-                            //                            cout << "修改成功！" << endl;
-                            //                            saveContactsToCSV(a);
-                            //                            system("pause");
-                            //                            return;
                         }
                     }
                     if (!sign) break;
