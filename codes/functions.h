@@ -709,7 +709,7 @@ void modify(vector<Contact>& a) {
 
             }
             if (it == a.end()) {
-                cout << "修改失败" << endl;
+                cout << "查无此人，修改失败" << endl;
                 system("pause");
                 return;
             }
@@ -762,7 +762,7 @@ void modify(vector<Contact>& a) {
                 }
                 it2++;
                 if (it2 == a.end()) {
-                    cout << "修改失败" << endl;
+                    cout << "查无此人，修改失败" << endl;
                     system("pause");
                     return;
                 }
