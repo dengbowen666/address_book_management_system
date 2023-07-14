@@ -37,6 +37,7 @@ vector<Contact> readContactsFromCSV() {
     else {
         cout << "无法打开 通讯录数据文件" << endl;
         ofstream file1("data.csv");
+        file1 << "Phone Number,Name,Tag,Address,Birthdate\n";
         file1.close();
         cout << "已创建 通讯录数据文件" << endl;
     }
