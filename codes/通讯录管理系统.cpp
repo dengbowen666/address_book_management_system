@@ -604,6 +604,7 @@ void dele(vector<Contact>& a) {
                     if (identify == 'y') {
                         a.erase(it);
                         cout << "删除成功" << endl;
+                        saveContactsToCSV(a);
                         system("pause");
                         return;
                     }
