@@ -564,11 +564,11 @@ void add(vector<Contact>& a) {
     person.phoneNumber = phone;
     cout << "请输入姓名： " << endl;
     cin >> person.name;
-    cout << "请输入地址：" << endl;
+    cout << "请输入地址(如果没有，请输入none)：" << endl;
     cin >> person.address;
-    cout << "请输入标签： " << endl;
+    cout << "请输入标签(如果没有，请输入none)： " << endl;
     cin >> person.tag;
-    cout << "请输入生日(yyyy-mm-dd)：" << endl;
+    cout << "请输入生日(yyyy-mm-dd)(如果没有，请输入none)：" << endl;
     cin >> person.birthdate;
     a.push_back(person);
     saveContactsToCSV(a);
